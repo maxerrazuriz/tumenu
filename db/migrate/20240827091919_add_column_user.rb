@@ -1,8 +1,8 @@
 class AddColumnUser < ActiveRecord::Migration[7.1]
   def change
-    add_column :user, :first_name
-    add_column :user, :last_name
-    add_column :user, :address
-    add_column :user, age: :integer
+    add_column :users, :first_name, :string
+    add_column :users, :last_name, :string
+    add_column :users, :address, :string
+    add_column :users, :age, :integer
   end
 end
