@@ -1,7 +1,7 @@
 .navbar-tumenu {
   justify-content: space-between;
   background: white;
-  height: 65px;
+  height: 70px;
 }
 
 .navbar-tumenu .navbar-collapse {
@@ -14,6 +14,8 @@
 
 
 #sign_up_button {
+  background-color: rgb(15, 184, 0);
+  border-color: rgb(15, 184, 0);
   color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
