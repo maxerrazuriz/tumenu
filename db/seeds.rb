@@ -7,16 +7,31 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-CUISINE = ["japanese", "canadian", "spanish", "italian", "german", cuban]
+MealDiet.destroy_all
+UserDiet.destroy_all
+UserMeal.destroy_all
+MealIngredient.destroy_all
+Review.destroy_all
+Meal.destroy_all
 User.destroy_all
-users = []
-meals = []
-ingrs = []
-5.times do
-  user = User.new(
+Ingredient.destroy_all
+Diet.destroy_all
+
+User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  address: Faker::Address.street_address,
+  age: rand(7..38),
+  email: Faker::Internet.email,
+  password: "password",
+  password_confirmation: "password"
+)
+
+4.times do
+  User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    address: Faker::Locations::Australia.location,
+    address: Faker::Address.street_address,
     age: rand(7..38),
     email: Faker::Internet.email,
     password: "password",
@@ -24,18 +39,65 @@ ingrs = []
   )
 end
 
-5.times do
-  meal = Meal.new(
-    cuisine: CUISINE.sample,
-    description: Faker::GreekPhilosophers.quote,
+18.times do
+  Meal.create!(
+    cuisine: Faker::Food.ethnic_category,
+    description: Faker::Food.description,
     recipe: Faker::Quote.famous_last_words,
-    user: users.sample
+    user: User.all.sample,
+    name: Faker::Food.dish
   )
 end
 
 5.times do
-  ingr = Ingridient.new(
+  Ingredient.create!(
     name: Faker::Food.ingredient,
-    unit: ["l", "ml", "kg", "g", "ly"].sample
+    unit: Faker::Food.measurement
+  )
+end
+
+5.times do
+  MealIngredient.create!(
+    ingredient: Ingredient.all.sample,
+    meal: Meal.all.sample,
+    quantity: rand(1..200)
+  )
+end
+
+["dairy free", "gluten free", "vegan", "vegetarian", "peanuts"].each do |diet|
+  Diet.create!(
+    name: diet
+  )
+end
+
+5.times do
+  MealDiet.new(
+    diet: Diet.all.sample,
+    meal: Meal.all.sample
+  )
+end
+
+5.times do
+  UserDiet.new(
+    user: User.all.sample,
+    diet: Diet.all.sample
+  )
+end
+
+5.times do
+  UserMeal.new(
+    date: Faker::Date.between(from: '2024-09-09', to: '2025-09-15'),
+    time_of_day: ["breakfast", "lunch", "dinner", "snack", "assault the fridge at 2am"].sample,
+    meal: Meal.all.sample,
+    user: User.all.sample
+  )
+end
+
+15.times do
+  Review.new(
+    content: Faker::Quote.yoda,
+    rating: rand(1..5),
+    meal: Meal.all.sample,
+    user: User.all.sample
   )
 end
