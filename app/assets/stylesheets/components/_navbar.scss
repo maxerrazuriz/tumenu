@@ -1,12 +1,25 @@
-.navbar-lewagon {
+.navbar-tumenu {
   justify-content: space-between;
   background: white;
+  height: 65px;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-tumenu .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-tumenu .navbar-brand img {
+  width: 80px;
+}
+
+
+#sign_up_button {
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 35px;
+  width: 90px;
+  height: 30px;
 }
