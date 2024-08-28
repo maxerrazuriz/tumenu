@@ -1,16 +1,15 @@
 class MealsController < ApplicationController
   def index
-    @meal = Meal.all
+    @meals = Meal.all
     carousel
     if params[:query].present?
       sql_subquery = <<~SQL
         name @@ :query
         OR description @@ :query
-        OR meal_ingredients.ingredients @@ :query
+        OR cuisine @@ :query
       SQL
-      @meal = @meal.joins(:name).where(sql_subquery, query: "%#{params[:query]}%")
+      @meals = @meals.where(sql_subquery, query: "%#{params[:query]}%")
     end
-
   end
 
   def new
@@ -37,7 +36,7 @@ class MealsController < ApplicationController
     @indian_list = Meal.where(cuisine: "indian")
     @italian_list = Meal.where(cuisine: "italian")
     @canadian_list = Meal.where(cuisine: "canadian")
-    @meals = [@japanese_list, @indian_list, @italian_list, @canadian_list]
+    @cuisines = [@japanese_list, @indian_list, @italian_list, @canadian_list]
   end
 
   private

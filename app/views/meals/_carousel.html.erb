@@ -1,25 +1,15 @@
+<h2 id="mod-title"><%= "#{list.first.cuisine} food".upcase %></h2>
 <div style = "padding: 5%;" id="carousel_<%=index%>" class="carousel slide" data-bs-ride="carousel">
-    <h1 style= "padding-left: 5%; padding-bottom: 3%;"><%= "#{list.first.cuisine} food".upcase %></h1>
     <div style = "padding: 5%;" class="carousel-inner">
-
-<%# GROUP 4 CATS TOGETHER %>
-            <% list.in_groups_of(2, false).each_with_index do |group, index| %>
-              <div class="carousel-item <%= 'active' if index == 0 %>">
-    <%# FOR EACH ROW OF 4 DO THIS %>
-                <div class="row">
-                  <% group.each do |meal| %>
-                    <div class="col-md-3 flex row">
-                      <div style ="padding: 0;" class="card mb-2 me-2">
-                        <div style = "padding: 0;" class="card-body">
-                          <h5 class="card-title"><%=link_to meal.name, meal_path(meal)%></h5>
-                          <p style= "margin-left: 0px"><%= (meal.description)[0..40] %>...</p>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
+      <% list.in_groups_of(2, false).each_with_index do |group, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <div class="row cards">
+            <% group.each do |meal| %>
+              <%= render "card", meal: meal %>
             <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
 
 
