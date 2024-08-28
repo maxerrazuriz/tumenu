@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get "profiles/:id", to: "users#show", as: "profile"
   # Defines the root path route ("/")
   # root "posts#index"
+
   resources :meals, except: [:destroy]
 end

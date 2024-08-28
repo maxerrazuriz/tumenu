@@ -1,4 +1,11 @@
 class MealsController < ApplicationController
+
+  before_action :set_meals, only: [:show]
+
+  def show
+    @ingredients = @meal.meal_ingredients.includes(:ingredient)
+  end
+  
   def index
     @meal = Meal.all
     carousel
@@ -42,7 +49,9 @@ class MealsController < ApplicationController
 
   private
 
+  def set_meals
+    @meal = Meal.find(params[:id])
+  end
   def meal_params
     params.require(:meal).permit(:name, :cuisine, :description, :recipe, :user) #then add picture
   end
-end
