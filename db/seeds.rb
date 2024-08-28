@@ -17,8 +17,7 @@ User.destroy_all
 Ingredient.destroy_all
 Diet.destroy_all
 
-
-
+require "open_uri"
 User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
