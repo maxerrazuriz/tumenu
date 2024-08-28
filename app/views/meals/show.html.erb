@@ -1,21 +1,26 @@
-<div class = "meal_image">
-  <img src="https://res.cloudinary.com/do9ythsfg/image/upload/v1724839197/Fajita-style-pasta-f792c52_ralzul.jpg" alt="pasta">
+
+<div class = "meal_background_image">
+  <%= link_to "+  Add to calendar", meal_path(@meal), class: "btn btn-primary calendar_btn" %>
 </div>
 <div class = "meal_intro">
   <h1><%= @meal.name %></h1>
   <p><%= @meal.description %><p>
 </div>
 
-<div class = "ingredients">
-  <h2>Ingredients</h2>
-  <ul>
-    <%@meal.meal_ingredients.includes(:ingredient).each do |meal_ingredient| %>
-      <li> <%= meal_ingredient.ingredient.unit %> <%= meal_ingredient.ingredient.name %></li>
-    <% end %>
-  </ul>
-</div>
+<div class = "description">
+  <div class = "ingredients">
+    <h2>Ingredients</h2>
+    <ul>
+      <%@meal.meal_ingredients.includes(:ingredient).each do |meal_ingredient| %>
+        <li> <%= meal_ingredient.ingredient.unit %> <%= meal_ingredient.ingredient.name %></li>
+      <% end %>
+    </ul>
+  </div>
 
-<div class = "recipe">
-  <h2>Instruction:</h2>
-  <p><%= @meal.recipe %></p>
+  <div class = "recipe">
+    <h2>Instruction:</h2>
+    <ol>
+      <li><%= @meal.recipe %></li>
+    </ol>
+  </div>
 </div>
