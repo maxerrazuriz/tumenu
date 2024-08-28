@@ -1,1 +1,46 @@
 // Specific CSS for your home-page
+.banner {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-weight: bold;
+  font-family: Lato;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  font-weight: 700px;
+  font-style: italic;
+  font-family: Lato;
+  font-size: 18px;
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+
+#lets_get_started_button {
+  font-family: Lato;
+  font-size: 16px;
+  border-radius: 30px;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  width: 180px;
+  height: 55px;
+}

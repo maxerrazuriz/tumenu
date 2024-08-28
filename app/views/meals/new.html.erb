@@ -1,0 +1,20 @@
+<div class="container_new">
+  <div>
+    <div class="card p-2 m-4" id="new_card">
+     <div>
+      <h5>Post your Recipe</h5>
+      <%= simple_form_for(@meal) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :cuisine %>
+          <%= f.input :description%>
+          <%= f.input :recipe%>
+          <!-- add photo thing when we add cloudinary -->
+
+          <%= f.submit "Post your recipe", class: "btn btn-primary w-100"%>
+
+
+      <% end %>
+     </div>
+    </div>
+  </div>
+</div>
