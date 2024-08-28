@@ -1,0 +1,27 @@
+
+
+<p id="hallo_user">Hallo <%= @user.first_name %></p>
+<div class="card" id="profile_card">
+  <div class= "container">
+
+    <div class="col-7">
+      <div class="profile_picture">
+        <%= image_tag "https://res.cloudinary.com/dwalfnpav/image/upload/v1724774599/Profile_thhd08.webp", alt: "profile_picture", class: "scaled-image"%>
+      </div>
+    </div>
+
+    <div class="col-5 full_name">
+        <%= @user.first_name %><br/>
+        <%= @user.last_name %><br/>
+        <p class="profile_age">Age: <%= @user.age %></p>
+    </div>
+
+  </div>
+
+  <div class="address_details">
+    <p class="profile_address">Address: <%= @user.address %><br/>
+    Email: <%= @user.email %></p>
+  </div>
+
+
+</div>
