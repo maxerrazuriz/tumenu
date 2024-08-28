@@ -4,24 +4,27 @@
   height: 70px;
 }
 
-.navbar-tumenu .navbar-collapse {
-  flex-grow: 0;
+#container_nav {
+  margin-top: -28px;
 }
-
-.navbar-tumenu .navbar-brand img {
-  width: 80px;
-}
-
 
 #sign_up_button {
   background-color: rgb(15, 184, 0);
-  border-color: rgb(15, 184, 0);
+  border: none;
   color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  border-radius: 35px;
+  flex-wrap: nowrap;
+  padding: 3px 20px;
+}
+
+#logo {
   width: 90px;
-  height: 30px;
+}
+
+#lets_get_started_button {
+  background-color: rgb(13, 110, 253);
+  border: none;
+  
 }
