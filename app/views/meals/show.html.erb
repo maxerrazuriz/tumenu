@@ -1,0 +1,22 @@
+<div class = "meal_image">
+  MEAL IMAGE
+  CALENDAR BUTTON
+</div>
+<div class = "meal_intro">
+  <h1><%= @meal.name %></h1>
+  <p><%= @meal.description %><p>
+</div>
+
+<div class = "ingredients">
+  <h2>Ingredients</h2>
+  <ul>
+    <%@meal.meal_ingredients.includes(:ingredient).each do |meal_ingredient| %>
+      <li> <%= meal_ingredient.ingredient.unit %> <%= meal_ingredient.ingredient.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class = "recipe">
+  <h2>Instruction:</h2>
+  <p><%= @meal.recipe %></p>
+</div>
