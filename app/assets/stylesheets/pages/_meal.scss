@@ -8,7 +8,7 @@
     background-size: cover;
 }
 
-.calendar_btn{
+#calendar_btn{
 
  color: black;
  background-color: white;
@@ -49,7 +49,8 @@
 .recipe{
   background-color: rgb(255, 255, 255);
   padding: 20px;
-  li{
+  padding-right: 40px;
+  p{
     font-size: 13px;
   }
   h2{
