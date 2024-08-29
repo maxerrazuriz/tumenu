@@ -19,11 +19,11 @@ Diet.destroy_all
 
 require "open-uri"
 User.create!(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  address: Faker::Address.street_address,
+  first_name: "user",
+  last_name: "test",
+  address: "here",
   age: rand(7..38),
-  email: Faker::Internet.email,
+  email: "user@test.com",
   password: "password",
   password_confirmation: "password"
 )
@@ -73,22 +73,22 @@ end
   )
 end
 
-5.times do
-  MealDiet.new(
+15.times do
+  MealDiet.create!(
     diet: Diet.all.sample,
     meal: Meal.all.sample
   )
 end
 
-5.times do
-  UserDiet.new(
+15.times do
+  UserDiet.create!(
     user: User.all.sample,
     diet: Diet.all.sample
   )
 end
 
 5.times do
-  UserMeal.new(
+  UserMeal.create!(
     date: Faker::Date.between(from: '2024-09-09', to: '2025-09-15'),
     time_of_day: ["breakfast", "lunch", "dinner", "snack", "assault the fridge at 2am"].sample,
     meal: Meal.all.sample,
@@ -97,7 +97,7 @@ end
 end
 
 15.times do
-  Review.new(
+  Review.create!(
     content: Faker::Quote.yoda,
     rating: rand(1..5),
     meal: Meal.all.sample,
