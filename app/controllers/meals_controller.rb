@@ -4,11 +4,13 @@ class MealsController < ApplicationController
     carousel
     if params[:query].present?
       sql_subquery = <<~SQL
-        name @@ :query
-        OR description @@ :query
-        OR cuisine @@ :query
+        meals.name @@ :query
+        OR meals.description @@ :query
+        OR meals.cuisine @@ :query
+        OR ingredients.name @@ :query
+        OR diets.name @@ :query
       SQL
-      @meals = @meals.where(sql_subquery, query: "%#{params[:query]}%")
+      @meals = @meals.joins(:ingredients).left_outer_joins(:diets).where(sql_subquery, query: "%#{params[:query]}%")
     end
   end
 

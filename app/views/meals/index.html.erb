@@ -1,7 +1,7 @@
 <%# THIS PUTS ALL THE TYPES OF ANIMALS IN THEIR OWN ARRAY %>
 <%# CALLING THE CAROUSEL %>
 
-
+<div class="all"  data-controller="toggle">
 <%= form_with url: meals_path, method: :get, class: "mod-form" do %>
   <%= text_field_tag :query,
         params[:query],
@@ -12,22 +12,37 @@
       <i class="bi bi-search"></i>
   <% end %>
 <% end %>
-
+<i class="bi bi-sliders2" id="options" data-action="click->toggle#fire"></i>
 <div class="mod-body container">
-<% if params[:query].present? %>
-  <h2 id="searched">Recipes for "<%= params[:query] %>"</h2>
-  <div class="cards">
-  <% @meals.each do |meal| %>
-    <%= render "card", meal: meal %>
-  <% end %>
+  <div class="filters d-none" data-toggle-target="togglableElement">
+    <div> <%= link_to "vegan", meals_path(query:"vegan") %> </div>
+    <div><%= link_to "italian", meals_path(query:"italian") %></div>
+    <div><%= link_to "japanesse", meals_path(query:"japanesse") %></div>
+    <div><%= link_to "indian", meals_path(query:"indian") %></div>
+    <div><%= link_to "canadian", meals_path(query:"canadian") %></div>
+    <div><%= link_to "dairy free", meals_path(query:"dairy free") %></div>
+    <div><%= link_to "dessert", meals_path(query:"dessert") %></div>
+    <div><%= link_to "vegetarian", meals_path(query:"vegetarian") %></div>
+    <div><%= link_to "penne", meals_path(query:"penne") %></div>
+    <div><%= link_to "gluten free", meals_path(query:"gluten free") %></div>
+    <div><%= link_to "pizza", meals_path(query:"pizza") %></div>
+    <div><%= link_to "fries", meals_path(query:"fries") %></div>
   </div>
-<% else %>
-  <%@cuisines.each_with_index do |meal_array, index| %>
-  <br>
-    <%unless meal_array.size == 0%>
-      <%=render "carousel", list: meal_array, index: index %>
+  <% if params[:query].present? %>
+    <h2 id="searched">Recipes for "<%= params[:query] %>"</h2>
+    <div class="cards">
+    <% @meals.each do |meal| %>
+      <%= render "card", meal: meal %>
     <% end %>
-  <br>
+    </div>
+  <% else %>
+    <%@cuisines.each_with_index do |meal_array, index| %>
+    <br>
+      <%unless meal_array.size == 0%>
+        <%=render "carousel", list: meal_array, index: index %>
+      <% end %>
+    <br>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 </div>
