@@ -17,6 +17,7 @@ User.destroy_all
 Ingredient.destroy_all
 Diet.destroy_all
 
+require "open-uri"
 User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
@@ -43,25 +44,27 @@ end
   Meal.create!(
     cuisine: ["indian", "japanese", "italian", "canadian"].sample,
     description: Faker::Food.description,
-    recipe: Faker::Quote.famous_last_words,
+    recipe: Faker::Lorem.paragraphs.join,
     user: User.all.sample,
     name: Faker::Food.dish
   )
 end
 
-5.times do
+25.times do
   Ingredient.create!(
     name: Faker::Food.ingredient,
     unit: Faker::Food.measurement
   )
 end
 
-5.times do
-  MealIngredient.create!(
-    ingredient: Ingredient.all.sample,
-    meal: Meal.all.sample,
-    quantity: rand(1..200)
-  )
+Meal.all.each do |meal|
+  rand(2..10).times do
+    MealIngredient.create!(
+      ingredient: Ingredient.all.sample,
+      meal: meal,
+      quantity: rand(1..200)
+    )
+  end
 end
 
 ["dairy free", "gluten free", "vegan", "vegetarian", "peanuts"].each do |diet|

@@ -2,8 +2,9 @@
 <div class="banner">
     <%= image_tag "https://res.cloudinary.com/dwalfnpav/image/upload/v1724754507/Landing_Page_3_evhtfz.jpg", class: "banner-img" %>
     <div class="banner-content">
-        <h1>Welcome to TuMenu!</h1>
-        <h2>Recipes made easy<br/>plan your week with pleasure!</h2>
-        <button class="btn btn-primary" id="lets_get_started_button">Lets get started!</button>
+        <h1 id="welcome">Welcome to TuMenu!</h1>
+        <h2 id="slogan">Recipes made easy<br/>plan your week with pleasure!</h2>
+        <%= link_to "Lets get started!", meals_path, class: "btn btn-primary", type: "button", id: "lets_get_started_button" %>
     </div>
 </div>
+
