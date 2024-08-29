@@ -17,7 +17,10 @@ class MealsController < ApplicationController
         OR ingredients.name @@ :query
         OR diets.name @@ :query
       SQL
-      @meals = @meals.joins(:ingredients).left_outer_joins(:diets).where(sql_subquery, query: "%#{params[:query]}%")
+      @meals = @meals.joins(:ingredients)
+                     .left_outer_joins(:diets)
+                     .where(sql_subquery, query: "%#{params[:query]}%")
+                     .distinct
     end
   end
 
