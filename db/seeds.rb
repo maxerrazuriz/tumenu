@@ -42,7 +42,7 @@ end
 
 18.times do
   Meal.create!(
-    cuisine: ["indian", "japanese", "italian", "canadian"].sample,
+    cuisine: Faker::Food.ethnic_category,
     description: Faker::Food.description,
     recipe: Faker::Lorem.paragraphs.join,
     user: User.all.sample,
