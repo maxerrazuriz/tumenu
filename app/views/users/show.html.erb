@@ -1,44 +1,44 @@
 
 
-<p id="hallo_user">Welcome <%= @user.first_name %></p>
-<div class="card" id="profile_card">
-  <div class= "container">
+  <p id="hallo_user">Welcome <%= @user.first_name %></p>
+  <div class="card" id="profile_card">
+    <div class= "container">
 
-    <div class="col-7">
-      <div class="profile_picture">
-        <%= image_tag "https://res.cloudinary.com/dwalfnpav/image/upload/v1724774599/Profile_thhd08.webp", alt: "profile_picture", class: "scaled-image"%>
+      <div class="col-7">
+        <div class="profile_picture">
+          <%= image_tag "https://res.cloudinary.com/dwalfnpav/image/upload/v1724774599/Profile_thhd08.webp", alt: "profile_picture", class: "scaled-image"%>
+        </div>
+      </div>
+
+      <div class="col-5 full_name">
+          <%= @user.first_name %><br/>
+          <%= @user.last_name %><br/>
+          <p class="profile_age">Age: <%= @user.age %></p>
+      </div>
+
+    </div>
+
+    <div class="container" id="address_details">
+      <div><p class="profile_address_headers col">Address:<br/>Email:</p></div>
+      <div><p class="profile_address col"><%= @user.address %><br/>
+      <%= @user.email %></p></div>
+    </div>
+    <div class="container" id="diets_details">
+      <div class="profile_diets_headers col-7"><p>Dietary restrictions:</p></div>
+      <div class="profile_diets col-5"><p>
+        <% @user.user_diets.each do |user_diet| %>
+          <span class="diet-item">
+            <%= user_diet.diet.name %>
+          </span>
+        <% end %>
       </div>
     </div>
 
-    <div class="col-5 full_name">
-        <%= @user.first_name %><br/>
-        <%= @user.last_name %><br/>
-        <p class="profile_age">Age: <%= @user.age %></p>
-    </div>
-
-  </div>
-
-  <div class="container" id="address_details">
-    <div><p class="profile_address_headers col">Address:<br/>Email:</p></div>
-    <div><p class="profile_address col"><%= @user.address %><br/>
-    <%= @user.email %></p></div>
-  </div>
-  <div class="container" id="diets_details">
-    <div class="profile_diets_headers col-7"><p>Dietary restrictions:</p></div>
-    <div class="profile_diets col-5"><p>
-      <% @user.user_diets.each do |user_diet| %>
-        <span class="diet-item">
-          <%= user_diet.diet.name %>
-        </span>
+    <div class="user_diets_form">
+      <%= simple_form_for(@user_diet, html: { id: "user_diet_form" }) do |f| %>
+        <%= f.input :diet_id, collection: Diet.all, prompt: "Add dietary restrictions", input_html: { onchange: "this.form.submit();", class:"input_field" }, label: false %>
       <% end %>
     </div>
+
+
   </div>
-
-  <div class="user_diets_form">
-    <%= simple_form_for(@user_diet, html: { id: "user_diet_form" }) do |f| %>
-      <%= f.input :diet_id, collection: Diet.all, prompt: "Add dietary restrictions", input_html: { onchange: "this.form.submit();", class:"input_field" }, label: false %>
-    <% end %>
-  </div>
-
-
-</div>
