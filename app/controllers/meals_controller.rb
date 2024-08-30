@@ -1,4 +1,5 @@
 class MealsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :index, :carousel]
 
   before_action :set_meals, only: [:show]
 
@@ -22,11 +23,16 @@ class MealsController < ApplicationController
 
   def new
     @meal = Meal.new
+    @meal_ingredient = 10.times { @meal.meal_ingredients.build }
   end
 
   def create
-    @meal = Meal.new(meal_params)
+    @meal_params = meal_params
+    @meal_params[:meal_ingredients_attributes] = meal_params[:meal_ingredients_attributes].select { |id, hash| hash[:ingredient_id].present? }
+
+    @meal = Meal.new(@meal_params)
     @meal.user = current_user
+
     if @meal.save
       redirect_to meal_path(@meal)
     else
@@ -49,7 +55,7 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(:name, :cuisine, :description, :recipe, :user) #then add picture
+    params.require(:meal).permit(:name, :cuisine, :description, :recipe, :user, :ingredients, meal_ingredients_attributes: [:ingredient_id, :quantity]) #then add picture
   end
 
 end

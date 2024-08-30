@@ -1,20 +1,29 @@
-<div class="container_new">
-  <div>
-    <div class="card p-2 m-4" id="new_card">
-     <div>
-      <h5>Post your Recipe</h5>
-      <%= simple_form_for(@meal) do |f| %>
-          <%= f.input :name %>
-          <%= f.input :cuisine %>
-          <%= f.input :description%>
-          <%= f.input :recipe%>
-          <!-- add photo thing when we add cloudinary -->
 
-          <%= f.submit "Post your recipe", class: "btn btn-primary w-100"%>
+<div data-controller ="ingredient-qty">
 
+    <h5 style = "padding-left: 35px;">Post your Recipe</h5>
 
+    <%= simple_form_for(@meal) do |f| %>
+      <%= f.input :name, :label => "Dish"%>
+      <%= f.input :cuisine %>
+      <%= f.input :description%>
+
+      <%= f.fields_for :meal_ingredients, data: {ingredient_qty_target: "form"} do |ff|%>
+        <div class = "post-form-qnty d-none"  data-ingredient-qty-target ="ingredientInput" >
+          <%= ff.association :ingredient, collection: Ingredient.order(:name), :as => :select, input_html: { data: {controller: "tom-select"}}, class: "ingredient-quantity"%>
+          <%= ff.input :quantity, class: "quantity-ingredient"%>
+        </div>
       <% end %>
-     </div>
-    </div>
-  </div>
+
+      <div style= "padding-left: 10px;">
+        <i style = "padding-top: 0px; margin-top: 0px;"
+        class="fa-solid fa-plus"
+        data-action="click->ingredient-qty#ingredient"></i>
+      </div>
+
+      <%= f.input :recipe,
+          :label => "Instructions"%>
+        <!-- add photo thing when we add cloudinary -->
+      <%= f.submit "Post your recipe", class: "btn btn-primary w-100"%>
+    <% end %>
 </div>

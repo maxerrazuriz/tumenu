@@ -53,7 +53,7 @@ end
 25.times do
   Ingredient.create!(
     name: Faker::Food.ingredient,
-    unit: Faker::Food.measurement
+    unit: ["grams", "ml", "tbs", "ts"].sample
   )
 end
 

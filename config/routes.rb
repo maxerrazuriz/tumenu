@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :meals, except: [:destroy]
+
+
+  resources :meal_ingredients, only: [:create]
 end
