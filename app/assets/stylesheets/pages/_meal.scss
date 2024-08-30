@@ -8,17 +8,31 @@
     background-size: cover;
 }
 
-#calendar_btn{
+#cal_form{
 
- color: black;
- background-color: white;
- padding-left: 20px;
- padding-right: 20px;
- height: 25px;
- font-size: 10px;
- margin-left: 250px;
- margin-top: 100px;
+  form{
+    position: relative;
+  }
 
+  .remolacha{
+    color: black;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 25px;
+    font-size: 10px;
+    position: rel;
+    top: 20%;
+    right: 10%;
+    border-radius: 25px;
+    border-width: 0.1px;
+  }
+  #arrow-down{
+    position: absolute;
+    top: 20.69%;
+    right: 12%;
+    font-size: 10px;
+  }
 }
 .meal_intro{
   h1{
@@ -61,4 +75,8 @@
 }
  .description {
   padding-top: 30px;
+ }
+
+ .meal_intro{
+  z-index: -1;
  }

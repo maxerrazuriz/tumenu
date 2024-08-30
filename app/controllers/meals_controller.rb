@@ -4,6 +4,7 @@ class MealsController < ApplicationController
 
   def show
     @ingredients = @meal.meal_ingredients.includes(:ingredient)
+    @user_meal = UserMeal.new
   end
 
   def index
@@ -53,7 +54,7 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(:name, :cuisine, :description, :recipe, :user) #then add picture
+    params.require(:meal).permit(:name, :cuisine, :description, :recipe, :user) # then add picture
   end
 
 end
