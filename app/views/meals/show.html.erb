@@ -26,7 +26,7 @@
     <h2>Ingredients:</h2>
     <ul>
       <%@meal.meal_ingredients.includes(:ingredient).each do |meal_ingredient| %>
-        <li> <%= meal_ingredient.ingredient.unit %> <%= meal_ingredient.ingredient.name %></li>
+        <li> <%= meal_ingredient.quantity %> <%= meal_ingredient.ingredient.unit %> <%= meal_ingredient.ingredient.name %></li>
       <% end %>
     </ul>
   </div>
@@ -36,3 +36,5 @@
     <p><%= @meal.recipe %></p>
   </div>
 </div>
+
+<p style="padding-left: 20px; position: fixed; bottom: 0;"> <i class="fa-solid fa-arrow-left"></i> <%= link_to "Back to meals", meals_path, style: "text-decoration: none; padding-left: 2px;" %></p>

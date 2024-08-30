@@ -11,7 +11,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+
   resources :meals, except: [:destroy] do
     resources :user_meals, only: [:create]
   end
+  resources :meal_ingredients, only: [:create]
+  resources :user_diets, only: [:create, :index, :destroy]
+  resources :diets, only: [:create, :index]
+
+
 end
