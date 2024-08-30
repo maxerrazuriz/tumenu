@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
+  has_many :user_diets
   has_many :diets, through: :user_diets
   has_many :reviews
   has_many :meals, through: :user_meal
