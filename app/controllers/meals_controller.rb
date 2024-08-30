@@ -5,6 +5,7 @@ class MealsController < ApplicationController
 
   def show
     @ingredients = @meal.meal_ingredients.includes(:ingredient)
+    @user_meal = UserMeal.new
   end
 
   def index

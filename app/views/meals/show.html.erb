@@ -1,7 +1,21 @@
 
-<div class = "meal_background_image">
-  <%= link_to "+  Add to calendar", meal_path(@meal), class: "btn btn-primary", id: "calendar_btn" %>
+<div class = "meal_background_image" >
+  <div data-controller="toggle">
+    <button data-action="click->toggle#fire" class="remolacha">+ Add to calendar</button>
+    <i class="bi bi-caret-down-fill" id="arrow-down"></i>
+    <div id="cal_form">
+      <div data-toggle-target="togglableElement" class="d-none ">
+        <%= simple_form_for([@meal, @user_meal]) do |f| %>
+          <%= f.input :date%>
+          <%= f.input :time_of_day, collection: UserMeal::TIMES, as: :select, id:"time_of_day" %>
+          <%= f.submit "Add to calendar", class: "btn btn-primary w-100", id: "btn_post" %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
 </div>
+
 <div class = "meal_intro">
   <h1><%= @meal.name %></h1>
   <p><%= @meal.description %><p>
