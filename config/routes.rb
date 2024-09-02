@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :meals, except: [:destroy] do
     resources :user_meals, only: [:create]
+    resources :reviews, only: [:create]
+
   end
   resources :meal_ingredients, only: [:create]
   resources :user_diets, only: [:create, :index, :destroy]

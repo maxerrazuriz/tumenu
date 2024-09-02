@@ -1,0 +1,71 @@
+.new_review {
+padding: 0px;
+margin: 0px;
+box-shadow: none;
+
+}
+
+#review_content {
+  background-color: white;
+
+}
+
+
+.notification {
+
+  align-items: center;
+  margin: 12px;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+
+  i {
+  color: rgb(243, 222, 67)
+}
+
+}
+
+.notification .notification-content {
+  display: flex;
+  padding: 0px;
+  padding-bottom: 5px;
+
+  img {
+    padding-left:0px;
+  }
+
+  p {
+    padding-top: 20px;
+    padding-left: 15px;
+  }
+}
+
+.notification p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.notification small {
+  color: #ea4242;
+  font-weight: bold;
+}
+.notification .notification-actions {
+  opacity: 0;
+  display: flex;
+  transition: ease .3s;
+}
+
+.notification:hover .notification-actions {
+  opacity: 1;
+}
+
+.notification .notification-actions a {
+  color: #e16208;
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.notification .notification-actions a:hover {
+  color: #e1560b;
+}
