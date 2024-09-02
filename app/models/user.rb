@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :user_diets
   has_many :diets, through: :user_diets
   has_many :reviews
-  has_many :meals, through: :user_meal
+  has_many :user_meals
 
   validates :address, :age, :last_name, :first_name, presence: true
 end
