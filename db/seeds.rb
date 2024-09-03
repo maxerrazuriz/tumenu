@@ -87,13 +87,15 @@ end
   )
 end
 
-5.times do
-  UserMeal.create!(
-    date: Faker::Date.between(from: '2024-09-09', to: '2025-09-15'),
-    time_of_day: ["breakfast", "lunch", "dinner", "snack", "assault the fridge at 2am"].sample,
-    meal: Meal.all.sample,
-    user: User.all.sample
-  )
+User.all.each do |user|
+  5.times do
+    UserMeal.create!(
+      date: Faker::Date.between(from: Date.today, to: Date.today + 30),
+      time_of_day: ["breakfast", "lunch", "dinner", "snack", "assault the fridge at 2am"].sample,
+      meal: Meal.all.sample,
+      user: user
+    )
+  end
 end
 
 15.times do
