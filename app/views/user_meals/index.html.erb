@@ -1,0 +1,77 @@
+<div class="calendar">
+    <div class="durian">
+      <%day = Date.today%>
+      <% while day < Date.today + 7 %>
+        <div class="day card" data-controller="toggle-cal" >
+            <div class="d-flex justify-content-between some-element"  data-action="click->toggle-cal#dissapear">
+              <h3> <strong><%= day.strftime("%A") %></strong></h3>
+              <i class="bi bi-caret-down"></i>
+            </div>
+            <div class="cal-element" data-toggle-cal-target="toggledElement">
+              <div class="time" data-controller="toggle">
+                <h5 data-action="click->toggle#fire" ><i class="bi bi-list"></i>breakfast:</h5>
+                <div class="time-of-day d-none" data-toggle-target="togglableElement">
+                  <% unless @meals.where(date: day, time_of_day: "breakfast").empty? %>
+                    <% @meals.where(date: day, time_of_day: "breakfast").each do |meal| %>
+                      <p><%= link_to meal.meal.name, meal_path(meal.meal)%></p>
+                    <% end %>
+                  <% else %>
+                    <p>nothing planed yet</p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="time" data-controller="toggle">
+              <h5 data-action="click->toggle#fire" ><i class="bi bi-list"></i>lunch:</h5>
+                <div class="time-of-day d-none" data-toggle-target="togglableElement">
+                  <% unless @meals.where(date: day, time_of_day: "lunch").empty? %>
+                    <% @meals.where(date: day, time_of_day: "lunch").each do |meal| %>
+                      <p><%= link_to meal.meal.name, meal_path(meal.meal)%></p>
+                    <% end %>
+                  <% else %>
+                    <p>nothing planed yet</p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="time" data-controller="toggle">
+                <h5 data-action="click->toggle#fire" ><i class="bi bi-list"></i>dinner:</h5>
+                <div class="time-of-day d-none" data-toggle-target="togglableElement">
+                  <% unless @meals.where(date: day, time_of_day: "dinner").empty? %>
+                    <% @meals.where(date: day, time_of_day: "dinner").each do |meal| %>
+                      <p><%= link_to meal.meal.name, meal_path(meal.meal)%></p>
+                    <% end %>
+                  <% else %>
+                    <p>nothing planed yet</p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="time" data-controller="toggle">
+                <h5 data-action="click->toggle#fire" ><i class="bi bi-list"></i>snack:</h5>
+                <div class="time-of-day d-none" data-toggle-target="togglableElement">
+                  <% unless @meals.where(date: day, time_of_day: "snack").empty? %>
+                    <% @meals.where(date: day, time_of_day: "snack").each do |meal| %>
+                      <p><%= link_to meal.meal.name, meal_path(meal.meal)%></p>
+                    <% end %>
+                  <% else %>
+                    <p>nothing planed yet</p>
+                  <% end %>
+                </div>
+              </div>
+              <div class="time" data-controller="toggle">
+                <h5 data-action="click->toggle#fire" ><i class="bi bi-list"></i>midnight snack:</h5>
+                <div class="time-of-day d-none" data-toggle-target="togglableElement">
+                  <% unless @meals.where(date: day, time_of_day: "assault the fridge at 2am").empty? %>
+                    <% @meals.where(date: day, time_of_day: "assault the fridge at 2am").each do |meal| %>
+                      <p><%= link_to meal.meal.name, meal_path(meal.meal)%></p>
+                    <% end %>
+                  <% else %>
+                    <p>nothing planed yet</p>
+                  <% end %>
+                </div>
+              </div>
+            <% day = day + 1 %>
+          </div>
+        </div>
+        <br>
+      <% end %>
+    </div>
+</div>

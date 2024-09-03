@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   resources :meal_ingredients, only: [:create]
   resources :user_diets, only: [:create, :index, :destroy]
   resources :diets, only: [:create, :index]
-
+  resources :user_meals, only: [:index]
 
 end

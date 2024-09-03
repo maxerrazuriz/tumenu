@@ -1,0 +1,40 @@
+.calendar{
+  background-color: white;
+  min-height: 100%;
+  padding: 8px;
+  .the-thing{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .durian{
+    background-color: white;
+    margin-bottom: 5%;
+    margin: 10px;
+    min-height: 780px;
+  }
+  .some-element{
+    border-bottom: solid rgb(194, 194, 194);
+  }
+
+  .day{
+    background-color: white;
+    border: none;
+    a{
+      color: black;
+    }
+    h5{
+      width: 100%;
+      border-bottom: solid rgb(194, 194, 194);
+    }
+    p{
+      width: 60%;
+      border-bottom: solid rgb(194, 194, 194);
+      a{
+        text-decoration: none;
+      }
+    }
+
+  }
+
+}

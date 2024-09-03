@@ -1,5 +1,10 @@
 class UserMealsController < ApplicationController
 
+
+  def index
+    @meals = UserMeal.where(user: current_user)
+  end
+
   def create
     @user_meal = UserMeal.new(user_meal_params)
     @user_meal.user = current_user
