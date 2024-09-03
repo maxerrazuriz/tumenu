@@ -6,7 +6,7 @@ export default class extends Controller {
   static targets = ["togglableElement", "togglableElemento"]
 
   connect() {
-      console.log("Hello from toggle_controller.js")
+
     }
 
   fire() {
