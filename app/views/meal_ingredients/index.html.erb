@@ -1,0 +1,20 @@
+
+<h1 class="header_grocery_list">Grocery List</h1>
+
+<% @grocery_list.each do |ingredient_id, quantity| %>
+
+  <li class="card" id="grocery_list">
+    <div class="container" id="grocery-container">
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <div class="ingredient_name"><%= Ingredient.find(ingredient_id).name %></div>
+      </div>
+
+
+      <div class="", id="quantity"><%= quantity %>
+        <%= Ingredient.find(ingredient_id).unit %>
+      </div>
+      </li>
+    </div>
+    <% end %>
