@@ -34,11 +34,16 @@
       </div>
     </div>
 
-    <div class="user_diets_form">
-      <%= simple_form_for(@user_diet, html: { id: "user_diet_form" }) do |f| %>
-        <%= f.input :diet_id, collection: Diet.all, prompt: "Add dietary restrictions", input_html: { onchange: "this.form.submit();", class:"input_field" }, label: false %>
-      <% end %>
-    </div>
+
+    <% if (Diet.all - @user.diets).any? %>
+      <div class="user_diets_form">
+        <%= simple_form_for(@user_diet, html: { id: "user_diet_form" }) do |f| %>
+          <%= f.input :diet_id, collection: Diet.all - @user.diets, prompt: "Add dietary restrictions", input_html: { onchange: "this.form.submit();", class:"input_field" }, label: false %>
+        <% end %>
+      </div>
+    <% else %>
+    <% end %>
+
 
 
   </div>
