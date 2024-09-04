@@ -135,6 +135,7 @@ User.create!(
 ).tap do |user|
   file = URI.open('https://res.cloudinary.com/do9ythsfg/image/upload/v1724409749/canva-green-gradient-minimalist-simple-instagram-profile-picture-tBlf3wVYGhg_jd3yut.jpg')
   user.profile_picture.attach(io: file, filename: 'user_nine.png', content_type: 'image/png')
+
 end
 
 User.create!(

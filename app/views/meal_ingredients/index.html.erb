@@ -1,20 +1,40 @@
 
+
 <h1 class="header_grocery_list">Grocery List</h1>
+  <div class="dropdown-container" id="container_groceries">
+    <div class="header_groceries">For the next:</div>
+    <div class="dropdown">
+      <button class="btn  dropdown" type="button" id="filter_button" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= "#{@day_filter} days" %>
+      </button>
 
-<% @grocery_list.each do |ingredient_id, quantity| %>
+      <ul class="dropdown-menu" id="day_filter_dropdown" aria-labelledby="dropdownMenuButton">
 
-  <li class="card" id="grocery_list">
-    <div class="container" id="grocery-container">
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <div class="ingredient_name"><%= Ingredient.find(ingredient_id).name %></div>
-      </div>
+        <li><%= link_to "7 days", meal_ingredients_path(filter: 7) %></li>
+        <li><%= link_to "14 days", meal_ingredients_path(filter: 14) %></li>
+        <li><%= link_to "30 days", meal_ingredients_path(filter: 30) %></li>
 
 
-      <div class="", id="quantity"><%= quantity %>
-        <%= Ingredient.find(ingredient_id).unit %>
-      </div>
-      </li>
+      </ul>
     </div>
-    <% end %>
+  </div>
+
+
+<div class="grocery_list">
+  <% @grocery_list.each do |ingredient_id, quantity| %>
+
+    <li class="card" id="grocery_list">
+      <div class="container" id="grocery-container">
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <div class="ingredient_name"><%= Ingredient.find(ingredient_id).name %></div>
+        </div>
+
+
+        <div class="", id="quantity"><%= quantity %>
+          <%= Ingredient.find(ingredient_id).unit %>
+        </div>
+      </div></li>
+      <% end %>
+</div>

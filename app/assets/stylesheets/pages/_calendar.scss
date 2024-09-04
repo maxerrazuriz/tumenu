@@ -1,0 +1,99 @@
+.upper-calendar{
+  background-color: orange;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  h2{
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+.calendar{
+  background-color: white;
+  min-height: 100%;
+  padding: 8px;
+  .the-thing{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .durian{
+    background-color: white;
+    margin-bottom: 5%;
+    margin: 10px;
+    min-height: 780px;
+  }
+  .some-element{
+    border-bottom: solid rgb(194, 194, 194);
+  }
+
+  .day{
+    background-color: white;
+    display: none;
+
+    &.active{
+      display: block;
+    }
+
+    a{
+      color: black;
+    }
+    h5{
+      width: 100%;
+      font-size: 25px;
+      margin-top: 15px;
+    }
+    p{
+      min-width: 60%;
+      margin: auto 0;
+      padding: 20px;
+      a{
+        text-decoration: none;
+      }
+    }
+
+  }
+
+}
+.blanc{
+  color: white;
+}
+
+
+.calendar-card {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-card img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.calendar-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.calendar-card p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.calendar-card .calendar-card-infos {
+  padding: 16px;
+}
