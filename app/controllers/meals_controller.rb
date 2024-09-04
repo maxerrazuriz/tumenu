@@ -47,11 +47,11 @@ class MealsController < ApplicationController
   end
 
   def carousel
-    @japanese_list = Meal.where(cuisine: "japanese")
-    @indian_list = Meal.where(cuisine: "indian")
-    @italian_list = Meal.where(cuisine: "italian")
-    @canadian_list = Meal.where(cuisine: "canadian")
-    @cuisines = [@japanese_list, @indian_list, @italian_list, @canadian_list]
+    @japanese_list = Meal.where(cuisine: "Japanese")
+    @indian_list = Meal.where(cuisine: "Indian")
+    @italian_list = Meal.where(cuisine: "Italian")
+    @thai_list = Meal.where(cuisine: "Thai")
+    @cuisines = [@japanese_list, @indian_list, @italian_list, @thai_list]
   end
 
   private
