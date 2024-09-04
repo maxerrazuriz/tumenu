@@ -25,10 +25,27 @@
 }
 
 #logo {
-  width: 90px;
+  width: 120px;
+  font-family: "Merienda", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  padding-top: 40px;
+  padding-left: 10px;
 }
 
 #lets_get_started_button {
   background-color: rgb(13, 110, 253);
   border: none;
+}
+#asparagus {
+  padding-top: 30px;
+  padding-right: 10px;
+  margin-right: 0px;
+
+i{
+  padding-right: 10px;
+  font-size: 30px;
+}
+
 }

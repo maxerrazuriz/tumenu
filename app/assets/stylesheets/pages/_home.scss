@@ -7,19 +7,22 @@
 
 .banner img {
   width: 100%;
-  height: calc(100vh - 70px);
+  height: 100vh;
   object-fit: cover;
 }
 
-#welcome {
-  font-weight: bold;
-  font-family: Lato;
+.welcome-logo {
+
   position: absolute;
-  top: 10%;
+  top: 13%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
   text-transform: uppercase;
+  font-family: "Merienda", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
 }
 
 
@@ -29,7 +32,7 @@
   font-family: Lato;
   font-size: 18px;
   position: absolute;
-  top: 20%;
+  top: 23%;
   left: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
@@ -42,7 +45,7 @@
   font-size: 17px;
   border-radius: 10px;
   position: absolute;
-  top: 25%;
+  top: 31%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 12px 20px;
