@@ -1,45 +1,63 @@
 
 
-  <p id="hallo_user">Welcome <%= @user.first_name %></p>
-  <div class="card" id="profile_card">
-    <div class= "container">
 
-      <div class="col-7">
-        <div class="profile_picture">
+<div class="card" id="profile_card">
+    <div class= "container" id="container_profile">
+      <div id="profile_picture"
           <% if @user.profile_picture.attached? %>
             <%= cl_image_tag @user.profile_picture.key, alt:"user Image", class:"scaled-image", style:"object-fit: cover"%>
           <% end %>
-        </div>
       </div>
 
-      <div class="col-5 full_name">
-          <%= @user.first_name %><br/>
+
+      <div class="" id="full_name">
+          <%= @user.first_name %>
           <%= @user.last_name %><br/>
-          <p class="profile_age">Age: <%= @user.age %></p>
       </div>
 
+      <div class="" id="age">
+        <p class="profile_age"><strong>Age:</strong> <%= @user.age %></p>
+      </div>
+
+
+   </div>
+
+    <div class="d-flex align-items-center mb-4">
+      <i class="fa-solid fa-house me-5"></i>
+      <p class="mb-0"><%= @user.address %></p>
     </div>
 
-    <div class="container" id="address_details">
-      <div><p class="profile_address_headers col">Address:<br/>Email:</p></div>
-      <div><p class="profile_address col"><%= @user.address %><br/>
-      <%= @user.email %></p></div>
+    <div class="d-flex align-items-center">
+      <i class="fa-regular fa-envelope me-5"></i>
+      <p class="mb-0"><%= @user.email %></p>
     </div>
-    <div class="container" id="diets_details">
-      <div class="profile_diets_headers col-7"><p>Dietary restrictions:</p></div>
-      <div class="profile_diets col-5"><p>
+
+
+    <div class="mt-5" id="diets_details">
+
+      <div class="d-flex align-items-center">
+        <div class="profile_diets_headers">Dietary restrictions:</div>
+        <% if (Diet.all - @user.diets).any? %>
+          <div class="user_diets_form">
+            <%= simple_form_for(@user_diet, html: { id: "user_diet_form" }) do |f| %>
+              <%= f.input :diet_id, collection: Diet.all - @user.diets, prompt: "+", input_html: { onchange: "this.form.submit();", class:"input_field diets_input" }, wrapper: false, label: false %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="profile_diets d-flex flex-wrap gap-3">
         <% @user.user_diets.each do |user_diet| %>
-          <span class="diet-item">
-            <%= user_diet.diet.name %>
-          </span>
+          <div class="d-flex">
+            <div class="remove_button">
+              <%= link_to "-", user_diet_path(user_diet), data: {turbo_method: :delete} %>
+            </div>
+            <span class="diet_item">
+              <%= user_diet.diet.name %>
+            </span>
+          </div>
         <% end %>
       </div>
     </div>
+</div>
 
-    <div class="user_diets_form">
-      <%= simple_form_for(@user_diet, html: { id: "user_diet_form" }) do |f| %>
-        <%= f.input :diet_id, collection: Diet.all, prompt: "Add dietary restrictions", input_html: { onchange: "this.form.submit();", class:"input_field" }, label: false %>
-      <% end %>
-    </div>
-
-  </div>
