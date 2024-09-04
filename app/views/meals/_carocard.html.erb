@@ -1,0 +1,16 @@
+<div class="carrousel-meal-card gx-0c" style = "background-image: url(<%= asset_path("aaaaa.jpeg") %> "></span>
+  <div class="meal-card-title-container carrousel-meal-card-title-container">
+    <%= link_to meal.name.upcase, meal_path(meal) %>
+    <div class="d-flex a-rating">
+      <% rating = 0 %>
+      <% meal.reviews.each do |review|%>
+        <% rating += review.rating %>
+      <% end %>
+      <% unless rating == 0 %>
+        <% rating = (rating/meal.reviews.size.to_f).round(1) %>
+        <p><%= rating %></p>
+        <i class="bi bi-star-fill"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

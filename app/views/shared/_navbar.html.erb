@@ -11,7 +11,11 @@
           <%= link_to "Create a Post", new_meal_path%>
           <%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete}%>
         </div>
-      <%= link_to image_tag("tiger.avif", :class => "avatar") ,profile_path(current_user)%>
+        <% if current_user.profile_picture.attached? %>
+          <%= link_to profile_path(current_user) do %>
+            <%= cl_image_tag current_user.profile_picture.key, alt:"user Image", class:"avatar", style:"object-fit: cover"%>
+          <% end %>
+        <%end%>
       </div>
     <% end %>
   </div>

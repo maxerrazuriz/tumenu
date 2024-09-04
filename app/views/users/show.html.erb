@@ -1,16 +1,18 @@
 
 
+
 <div class="card" id="profile_card">
     <div class= "container" id="container_profile">
-
-      <div class="" id="profile_picture">
-        <%= image_tag "https://res.cloudinary.com/dwalfnpav/image/upload/v1724774599/Profile_thhd08.webp", alt: "profile_picture", class: "scaled-image"%>
+      <div id="profile_picture"
+          <% if @user.profile_picture.attached? %>
+            <%= cl_image_tag @user.profile_picture.key, alt:"user Image", class:"scaled-image", style:"object-fit: cover"%>
+          <% end %>
       </div>
+
 
       <div class="" id="full_name">
           <%= @user.first_name %>
           <%= @user.last_name %><br/>
-
       </div>
 
       <div class="" id="age">
@@ -18,7 +20,7 @@
       </div>
 
 
-    </div>
+   </div>
 
     <div class="d-flex align-items-center mb-4">
       <i class="fa-solid fa-house me-5"></i>
@@ -29,6 +31,7 @@
       <i class="fa-regular fa-envelope me-5"></i>
       <p class="mb-0"><%= @user.email %></p>
     </div>
+
 
     <div class="mt-5" id="diets_details">
 
@@ -57,3 +60,4 @@
       </div>
     </div>
 </div>
+
