@@ -1,24 +1,22 @@
-<h2 id="mod-title"><%= "#{list.first.cuisine} food".upcase %></h2>
+<h2 id="mod-title"><i><%= "#{list.first.cuisine} food".upcase %></i></h2>
 <div style = "padding: 5%;" id="carousel_<%=index%>" class="carousel slide" data-bs-ride="carousel">
     <div style = "padding: 5%;" class="carousel-inner">
-      <% list.in_groups_of(2, false).each_with_index do |group, index| %>
+      <% list.in_groups_of(1, false).each_with_index do |group, index| %>
         <div class="carousel-item <%= 'active' if index == 0 %>">
-          <div class="row cards">
             <% group.each do |meal| %>
-              <%= render "card", meal: meal %>
+              <%= render "carocard", meal: meal %>
             <% end %>
-          </div>
         </div>
       <% end %>
     </div>
 
 
   <a class="carousel-control-prev" href="#carousel_<%=index%>" role="button" data-bs-slide="prev">
-    <span style = "background-image: url(https://banner2.cleanpng.com/20180509/czq/avc46ec59.webp)" class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span style = "background-image: url(<%= asset_path("flecha_i.png") %>)" class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carousel_<%=index%>" role="button" data-bs-slide="next">
-    <span style = "background-image: url(https://banner2.cleanpng.com/20180417/aew/avfo6u08p.webp)"; class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span style = "background-image: url(<%= asset_path("flecha_d.png") %>)"; class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </a>
 </div>
