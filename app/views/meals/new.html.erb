@@ -1,16 +1,26 @@
 
-<div data-controller ="ingredient-qty">
+<div data-controller ="ingredient-qty" class="form-entire">
 
-    <h5 style = "padding-left: 35px;">Post your Recipe</h5>
+    <h1 style = "padding-left: 33px;">Post your Recipe</h5>
 
     <%= simple_form_for(@meal) do |f| %>
-      <%= f.input :name, :label => "Dish"%>
-      <%= f.input :cuisine %>
-      <%= f.input :description%>
+      <%= f.input :name,
+                  placeholder: "Dish",
+                  label: false%>
+      <%= f.input :cuisine,
+                  placeholder: "Cuisine",
+                  label: false%>
+      <%= f.input :photo, as: :file,
+                  label: "Add a photo" %>
+      <%= f.input :description,
+                  placeholder: "Description",
+                  label: false%>
 
       <%= f.fields_for :meal_ingredients, data: {ingredient_qty_target: "form"} do |ff|%>
         <div class = "post-form-qnty d-none"  data-ingredient-qty-target ="ingredientInput" >
-          <%= ff.association :ingredient, collection: Ingredient.order(:name), :as => :select, input_html: { data: {controller: "tom-select"}}, class: "ingredient-quantity"%>
+          <%= ff.association :ingredient, collection: Ingredient.order(:name), :as => :select, input_html: { data: {controller: "tom-select"}}, class: "ingredient-quantity",
+                              placeholder: "Ingredient"
+                              %>
           <%= ff.input :quantity, class: "quantity-ingredient"%>
         </div>
       <% end %>
@@ -22,7 +32,9 @@
       </div>
 
       <%= f.input :recipe,
-          :label => "Instructions"%>
+                  :label => false,
+                  placeholder: "Instructions"%>
+
         <!-- add photo thing when we add cloudinary -->
       <%= f.submit "Post your recipe", class: "btn btn-primary w-100"%>
     <% end %>
