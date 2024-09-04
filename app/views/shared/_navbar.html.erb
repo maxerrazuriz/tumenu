@@ -8,8 +8,9 @@
       <div id="asparagus" data-controller="toggle">
       <i class="bi bi-list" data-action="click->toggle#fire2"></i>
         <div id="profile_options" class="d-none" data-toggle-target="togglableElemento">
-          <%= link_to "Create a Post", new_meal_path%>
-          <%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete}%>
+          <%= link_to "Create a Post", new_meal_path %>
+          <%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete} %>
+          <%= link_to "My Calendar", user_meals_path %>
         </div>
         <% if current_user.profile_picture.attached? %>
           <%= link_to profile_path(current_user) do %>

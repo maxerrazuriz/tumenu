@@ -38,7 +38,11 @@
 <h3 style = "padding-left: 15px; ">Reviews</h3>
 <div class= "review_form" >
   <%= simple_form_for([@meal, @review]) do |f| %>
-    <%= f.input :content, placeholder: "Write a review...", label: false%>
+    <div class="d-flex review-form-content">
+      <%= f.input :content, placeholder: "Write a review...", label: false%>
+      <%= f.input :rating, placeholder: "Rate it...", label: false, as: :numeric %>
+    </div>
+      <%= f.submit "Submit", class: "btn btn-primary"%>
   <% end %>
 
   <% @meal.reviews.each do |review| %>
@@ -60,10 +64,12 @@
           <% end %>
         </div>
         <p><%=review.content %></p>
-        <div class="notification-actions">
-          <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-        </div>
+        <% if review.user == current_user%>
+          <div class="notification-actions">
+            <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+            <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+          </div>
+        <%end%>
 
       </div>
     </div>

@@ -99,3 +99,30 @@
  .meal_intro{
   z-index: -1;
  }
+
+#new_review{
+ .review-form-content{
+  .review_rating{
+    margin-left: 20px;
+    width: 25%;
+    margin-top: 30px;
+
+    #review_rating{
+      text-align: left;
+      padding-top: 14px;
+      padding-left: 0px;
+      border: none;
+      border-bottom:  solid lightgray;
+    }
+  }
+  .review_content{
+    width: 70%;
+    margin-right: 20px;
+  }
+ }
+ input.btn.btn-primary{
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 5px;
+ }
+}

@@ -33,15 +33,6 @@
       }
   }
 
-  .slide{
-    padding-top: 0px;
-    a.carousel-control-next{
-      justify-content: end;
-    }
-    a.carousel-control-prev{
-      justify-content: start;
-    }
-  }
 
   .mod-body{
     background-color: white;
@@ -152,7 +143,7 @@
   border-radius: 15px;
 
 
-  .meal-card-title-container {
+  .carrousel-meal-card-title-container {
     background-color: #ffffff;
     display: flex;
     justify-content: space-between;
@@ -176,10 +167,10 @@
       font-weight: bolder;
       }
 
-    i.bi.bi-info-circle{
+    i.bi.bi-star-fill{
       padding-top: auto;
       padding-bottom: auto;
-
+      color: #FC4B08;
       justify-content: center;
     }
 
@@ -198,5 +189,16 @@
       margin-bottom: 40px;
     }
   }
-
+  .slide{
+    padding-top: 0px !important;
+    a.carousel-control-next{
+      justify-content: end;
+    }
+    a.carousel-control-prev{
+      justify-content: start;
+    }
+  }
+  i{
+    font-size: 20px;
+  }
 }
