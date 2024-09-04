@@ -35,7 +35,6 @@ class MealsController < ApplicationController
   def create
     @meal_params = meal_params
     @meal_params[:meal_ingredients_attributes] = meal_params[:meal_ingredients_attributes].select { |id, hash| hash[:ingredient_id].present? }
-
     @meal = Meal.new(@meal_params)
     @meal.user = current_user
 
@@ -61,7 +60,7 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(:name, :cuisine, :description, :recipe, :user, :ingredients, meal_ingredients_attributes: [:ingredient_id, :quantity]) #then add picture
+    params.require(:meal).permit(:name, :cuisine, :description, :recipe, :user, :ingredients, :photo, meal_ingredients_attributes: [:ingredient_id, :quantity]) #then add picture
   end
 
 end
