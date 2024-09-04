@@ -1,4 +1,5 @@
-<div class="meal-card gx-0c" style = "background-image: url(<%= asset_path("aaaaa.jpeg") %> "></span>
+
+<div class="meal-card gx-0c" style = "background-image: url(<%= cl_image_path meal.photo.key%>)">
   <div class="meal-card-title-container">
     <%= link_to meal.name.upcase, meal_path(meal) %>
     <i class="bi bi-info-circle"></i>

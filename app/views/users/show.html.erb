@@ -6,7 +6,9 @@
 
       <div class="col-7">
         <div class="profile_picture">
-          <%= image_tag "https://res.cloudinary.com/dwalfnpav/image/upload/v1724774599/Profile_thhd08.webp", alt: "profile_picture", class: "scaled-image"%>
+          <% if @user.profile_picture.attached? %>
+            <%= cl_image_tag @user.profile_picture.key, alt:"user Image", class:"scaled-image", style:"object-fit: cover"%>
+          <% end %>
         </div>
       </div>
 
@@ -39,6 +41,5 @@
         <%= f.input :diet_id, collection: Diet.all, prompt: "Add dietary restrictions", input_html: { onchange: "this.form.submit();", class:"input_field" }, label: false %>
       <% end %>
     </div>
-
 
   </div>

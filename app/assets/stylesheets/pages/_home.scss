@@ -7,16 +7,19 @@
 
 .banner img {
   width: 100%;
-  height: auto;
+  height: calc(100vh - 70px);
+  object-fit: cover;
 }
 
 #welcome {
   font-weight: bold;
   font-family: Lato;
   position: absolute;
-  top: 35%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: black;
+  text-transform: uppercase;
 }
 
 
@@ -26,20 +29,25 @@
   font-family: Lato;
   font-size: 18px;
   position: absolute;
-  top: 43%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
+  color: black;
 }
 
 
 #lets_get_started_button {
   font-family: Lato;
   font-size: 17px;
-  border-radius: 30px;
+  border-radius: 10px;
   position: absolute;
-  top: 80%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 12px 20px;
+  color: black;
+  text-transform: uppercase;
+  background-color: white;
+  font-weight: 1000;
 }
