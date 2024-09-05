@@ -101,28 +101,35 @@
  }
 
 #new_review{
- .review-form-content{
-  .review_rating{
-    margin-left: 20px;
-    width: 25%;
-    margin-top: 30px;
+//  .review-form-content{
+//   .review_rating{
+//     margin-left: 20px;
+//     width: 25%;
+//     margin-top: 30px;
 
-    #review_rating{
-      text-align: left;
-      padding-top: 14px;
-      padding-left: 0px;
-      border: none;
-      border-bottom:  solid lightgray;
-    }
+//     #review_rating{
+//       text-align: left;
+//       padding-top: 14px;
+//       padding-left: 0px;
+//       border: none;
+//       border-bottom:  solid lightgray;
+//     }
+//   }
+//   .review_content{
+//     width: 70%;
+//     margin-right: 20px;
+//   }
+//  }
+  .review_content  {
+    flex-grow: 1;
   }
-  .review_content{
-    width: 70%;
-    margin-right: 20px;
+
+  .form-control {
+    padding: 12px;
+    // height: 60px;
   }
- }
- input.btn.btn-primary{
-  margin-left: 50px;
-  margin-right: 50px;
+ .submit_review{
   margin-top: 5px;
+  margin: 24px auto;
  }
 }
