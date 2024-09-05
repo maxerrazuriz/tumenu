@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
     @meal = Meal.find(params[:meal_id])
   end
 
-  def meal_params
+  def review_params
     # strong params
     params.require(:review).permit(:content, :rating, :meal, :user)
   end
