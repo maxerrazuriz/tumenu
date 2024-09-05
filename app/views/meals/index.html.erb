@@ -1,48 +1,65 @@
 <%# THIS PUTS ALL THE TYPES OF ANIMALS IN THEIR OWN ARRAY %>
 <%# CALLING THE CAROUSEL %>
 
-<div class="all"  data-controller="toggle">
-<%= form_with url: meals_path, method: :get, class: "mod-form" do %>
-  <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Type a keyword"
-    %>
-  <%= button_tag nil, class: "btn mod-btn" do %>
-      <i class="bi bi-search"></i>
-  <% end %>
-<% end %>
-<i class="bi bi-sliders2" id="options" data-action="click->toggle#fire"></i>
-<div class="mod-body">
-  <div class="filters d-none" data-toggle-target="togglableElement">
-    <div class="d-flex"><i class="fa-solid fa-carrot"></i></i><%= link_to "Vegan", meals_path(query:"Vegan") %> </div>
-    <div class="d-flex"><i class="fa-solid fa-pepper-hot"></i><%= link_to "Mexican", meals_path(query:"Mexican") %></div>
-    <div class="d-flex"><i class="fa-solid fa-bowl-rice"></i><%= link_to "Japanese", meals_path(query:"Japanese") %></div>
-    <div class="d-flex"><i class="fa-solid fa-bowl-food"></i><%= link_to "Indian", meals_path(query:"Indian") %></div>
-    <div class="d-flex"><i class="fa-solid fa-fish-fins"></i><%= link_to "Fish", meals_path(query:"Fish") %></div>
-    <div class="d-flex"><i class="fa-solid fa-cow"></i><%= link_to "Dairy Free", meals_path(query:"Dairy Free") %></div>
-    <div class="d-flex"><i class="fa-solid fa-ice-cream"></i><%= link_to "Dessert", meals_path(query:"Dessert") %></div>
-    <div class="d-flex"><i class="fa-solid fa-seedling"></i><%= link_to "Vegetarian", meals_path(query:"Vegetarian") %></div>
-    <div class="d-flex"><i class="fa-solid fa-bacon"></i><%= link_to "American", meals_path(query:"American") %></div>
-    <div class="d-flex"><i class="fa-solid fa-bread-slice"></i><%= link_to "Gluten free", meals_path(query:"Gluten Free") %></div>
-    <div class="d-flex"><i class="fa-solid fa-pizza-slice"></i><%= link_to "Pizza", meals_path(query:"Pizza") %></div>
-    <div class="d-flex"><i class="fa-solid fa-wine-glass"></i><%= link_to "French", meals_path(query:"French") %></div>
-  </div>
-  <% if params[:query].present? %>
-    <h2 id="searched">Recipes for "<%= params[:query] %>"</h2>
-    <div class="cards">
-    <% @meals.each do |meal| %>
-      <%= render "carocard", meal: meal %>
-    <% end %>
-    </div>
-  <% else %>
-    <%@cuisines.each_with_index do |meal_array, index| %>
-    <br>
-      <%unless meal_array.size == 0%>
-        <%=render "carousel", list: meal_array, index: index %>
+  <div class="all"  data-controller="toggle">
+
+    <div class="d-flex searchbar">
+
+      <%= form_with url: meals_path, method: :get, class: "mod-form d-flex" do %>
+
+        <div class="position-relative">
+          <i class="bi bi-sliders2" id="options" data-action="click->toggle#fire"></i>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Type a keyword"%>
+
+          <%= button_tag nil, class: "btn mod-btn" do %>
+              <i class="bi bi-search"></i>
+          <% end %>
+        </div>
+
       <% end %>
-    <br>
-    <% end %>
-  <% end %>
-</div>
-</div>
+    </div>
+
+
+
+
+
+
+
+
+
+      <div class="mod-body">
+        <div class="filters d-none" data-toggle-target="togglableElement">
+          <div class="d-flex"><i class="fa-solid fa-carrot"></i><%= link_to "Vegan", meals_path(query:"Vegan") %> </div>
+          <div class="d-flex"><i class="fa-solid fa-pepper-hot"></i><%= link_to "Mexican", meals_path(query:"Mexican") %></div>
+          <div class="d-flex"><i class="fa-solid fa-bowl-rice"></i><%= link_to "Japanese", meals_path(query:"Japanese") %></div>
+          <div class="d-flex"><i class="fa-solid fa-bowl-food"></i><%= link_to "Indian", meals_path(query:"Indian") %></div>
+          <div class="d-flex"><i class="fa-solid fa-fish-fins"></i><%= link_to "Fish", meals_path(query:"Fish") %></div>
+          <div class="d-flex"><i class="fa-solid fa-cow"></i><%= link_to "Dairy Free", meals_path(query:"Dairy Free") %></div>
+          <div class="d-flex"><i class="fa-solid fa-ice-cream"></i><%= link_to "Dessert", meals_path(query:"Dessert") %></div>
+          <div class="d-flex"><i class="fa-solid fa-seedling"></i><%= link_to "Vegetarian", meals_path(query:"Vegetarian") %></div>
+          <div class="d-flex"><i class="fa-solid fa-bacon"></i><%= link_to "American", meals_path(query:"American") %></div>
+          <div class="d-flex"><i class="fa-solid fa-bread-slice"></i><%= link_to "Gluten free", meals_path(query:"Gluten Free") %></div>
+          <div class="d-flex"><i class="fa-solid fa-pizza-slice"></i><%= link_to "Pizza", meals_path(query:"Pizza") %></div>
+          <div class="d-flex"><i class="fa-solid fa-wine-glass"></i><%= link_to "French", meals_path(query:"French") %></div>
+        </div>
+        <% if params[:query].present? %>
+          <h2 id="searched">Recipes for "<%= params[:query] %>"</h2>
+          <div class="cards">
+          <% @meals.each do |meal| %>
+            <%= render "carocard", meal: meal %>
+          <% end %>
+          </div>
+        <% else %>
+          <%@cuisines.each_with_index do |meal_array, index| %>
+          <br>
+            <%unless meal_array.size == 0%>
+              <%=render "carousel", list: meal_array, index: index %>
+            <% end %>
+          <br>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
