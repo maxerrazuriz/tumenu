@@ -280,6 +280,18 @@ User.create!(
   file = URI.open('https://res.cloudinary.com/do9ythsfg/image/upload/v1725358967/beauty-portrait-of-young-asian-woman-on-the-light-and-shadow-background_jce4jl.jpg')
   user.profile_picture.attach(io: file, filename: 'user_twenty.png', content_type: 'image/png')
 end
+User.create!(
+  first_name: "Norika",
+  last_name: "Niyungeko",
+  address: "leWagon",
+  age: 19,
+  email: "nori.niyu@gmail.com",
+  password: "password",
+  password_confirmation: "password"
+).tap do |user|
+  file = URI.open('https://res.cloudinary.com/do9ythsfg/image/upload/v1725545721/truc_o46j1b.png')
+  user.profile_picture.attach(io: file, filename: 'user_twenty_one.png', content_type: 'image/png')
+end
 
 # creating meals, connected to arbitrary users : 20 meals
 Meal.create!(
@@ -1562,31 +1574,7 @@ MealIngredient.create!(
 )
 
 MealIngredient.create!(
-  ingredient: Ingredient.find_by(name: 'Tomatoes'),
-  meal: Meal.find_by(name: 'Fruit Salad'),
-  quantity: '2'
-)
-
-MealIngredient.create!(
-  ingredient: Ingredient.find_by(name: 'Green beans'),
-  meal: Meal.find_by(name: 'Fruit Salad'),
-  quantity: '1'
-)
-
-MealIngredient.create!(
-  ingredient: Ingredient.find_by(name: 'Peanuts'),
-  meal: Meal.find_by(name: 'Fruit Salad'),
-  quantity: '1'
-)
-
-MealIngredient.create!(
   ingredient: Ingredient.find_by(name: 'Lime'),
-  meal: Meal.find_by(name: 'Fruit Salad'),
-  quantity: '1'
-)
-
-MealIngredient.create!(
-  ingredient: Ingredient.find_by(name: 'Fish sauce'),
   meal: Meal.find_by(name: 'Fruit Salad'),
   quantity: '1'
 )
@@ -1857,317 +1845,219 @@ end
 
 # ASIGNING A USER TO A MEAL WITH DATE
 
-# Margherita Pizza
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Dinner",
-  meal: Meal.find_by(name: "Margherita Pizza"),
-  user: User.all.sample
-)
-
-# Vegan Black Bean Tacos
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Lunch",
-  meal: Meal.find_by(name: "Vegan Black Bean Tacos"),
-  user: User.all.sample
-)
-
-# Miso Soup
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Lunch",
-  meal: Meal.find_by(name: "Miso Soup"),
-  user: User.all.sample
-)
-
-# Butter Chicken
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Dinner",
-  meal: Meal.find_by(name: "Butter Chicken"),
-  user: User.all.sample
-)
-
-# Thai Green Curry
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Dinner",
-  meal: Meal.find_by(name: "Thai Green Curry"),
-  user: User.all.sample
-)
-
-# Greek Salad
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Lunch",
-  meal: Meal.find_by(name: "Greek Salad"),
-  user: User.all.sample
-)
-
-# Vegetarian Stir-Fried Tofu
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Dinner",
-  meal: Meal.find_by(name: "Vegetarian Stir-Fried Tofu"),
-  user: User.all.sample
-)
-
-# Cheese Souffle
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Dinner",
-  meal: Meal.find_by(name: "Cheese Souffle"),
-  user: User.all.sample
-)
-
-# Seafood Paella
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Dinner",
-  meal: Meal.find_by(name: "Seafood Paella"),
-  user: User.all.sample
-)
-
-# Hummus
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Snack",
-  meal: Meal.find_by(name: "Hummus"),
-  user: User.all.sample
-)
-# Spaghetti Aglio e Olio
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Dinner", # Typically served as a main dinner course
-  meal: Meal.find_by(name: "Spaghetti Aglio e Olio"),
-  user: User.all.sample
-)
-
-# Mushroom Risotto
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Dinner", # Typically served as a main dinner course
-  meal: Meal.find_by(name: "Mushroom Risotto"),
-  user: User.all.sample
-)
-
-# Vegetable Tempura
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Lunch", # Often served as a lighter meal or side dish for lunch
-  meal: Meal.find_by(name: "Vegetable Tempura"),
-  user: User.all.sample
-)
-
-# Chana Masala
-UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Dinner", # Typically served as a hearty dinner meal
-  meal: Meal.find_by(name: "Chana Masala"),
-  user: User.all.sample
-)
-
 # Spanakopita
 UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
+  date: "2024-09-06",
   time_of_day: "Lunch", # Can be served as a savory lunch option
   meal: Meal.find_by(name: "Spanakopita"),
-  user: User.all.sample
+  user: User.find_by(first_name: "Norika")
+)
+# Spanakopita
+UserMeal.create!(
+  date: "2024-09-07",
+  time_of_day: "Lunch", # Can be served as a savory lunch option
+  meal: Meal.find_by(name: "Butter Chicken"),
+  user: User.find_by(first_name: "Norika")
+)
+UserMeal.create!(
+  date: "2024-09-08",
+  time_of_day: "Dinner", # Can be served as a savory lunch option
+  meal: Meal.find_by(name: "Chana Masala"),
+  user: User.find_by(first_name: "Norika")
 )
 
 # Vegetable Fried Rice
 UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Breakfast", # Often served as a lighter meal or side dish for lunch
+  date: '2024-09-09',
+  time_of_day: "Lunch", # Often served as a lighter meal or side dish for lunch
   meal: Meal.find_by(name: "Vegetable Fried Rice"),
   user: User.all.sample
 )
 
 # Fruit Salad
 UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
+  date: '2024-09-10',
   time_of_day: "Breakfast", # Typically served as a hearty dinner meal
   meal: Meal.find_by(name: "Fruit Salad"),
-  user: User.all.sample
+  user: User.find_by(first_name: "Norika")
 )
 
 # Tomato breakfast
 UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Breakfast", # Can be served as a savory lunch option
-  meal: Meal.find_by(name: "Tomato and Cucumber Breakfast Soup"),
-  user: User.all.sample
+  date: '2024-09-12',
+  time_of_day: "Snack", # Can be served as a savory lunch option
+  meal: Meal.find_by(name: "Hummus"),
+  user: User.find_by(first_name: "Norika")
 )
 UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
+  date: '2024-09-12',
   time_of_day: "Breakfast", # Can be served as a savory lunch option
   meal: Meal.find_by(name: "Potato Hash"),
-  user: User.all.sample
+  user: User.find_by(first_name: "Norika")
 )
 UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
-  time_of_day: "Breakfast", # Can be served as a savory lunch option
-  meal: Meal.find_by(name: "Vegetable Couscous Breakfast Bowl"),
-  user: User.all.sample
+  date: '2024-09-11',
+  time_of_day: "Lunch", # Can be served as a savory lunch option
+  meal: Meal.find_by(name: "Miso Soup"),
+  user: User.find_by(first_name: "Norika")
 )
 UserMeal.create!(
-  date: Faker::Date.between(from: '2024-09-06', to: '2025-09-13'),
+  date: '2024-09-11',
   time_of_day: "Breakfast", # Can be served as a savory lunch option
   meal: Meal.find_by(name: "Avocado Toast"),
-  user: User.all.sample
+  user: User.find_by(first_name: "Norika")
 )
 
 Review.create!(
   content: "Delicious and satisfying! The flavors were perfect.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "A wonderful meal with just the right amount of spice. Will definitely try again.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "The dish was well-presented and tasted great. Could use a bit more seasoning.",
-  rating: rand(1..5),
+  rating: 4,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Very flavorful and fresh. Perfect balance of ingredients.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "It was good, but I expected a bit more based on the description.",
-  rating: rand(1..5),
+  rating: 3,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Absolutely loved it! The texture and taste were spot-on.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Not bad, but it didn’t stand out. Could use more variety in flavors.",
-  rating: rand(1..5),
+  rating: 2,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "A delightful meal! The presentation was fantastic and the taste was even better.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "The meal was good, but it took a bit longer to prepare than expected.",
-  rating: rand(1..5),
+  rating: 4,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Enjoyed every bite! The balance of flavors was really well done.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "A hearty and filling dish. Great for a satisfying meal.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Tasty, but I felt like it needed a bit more of a kick.",
-  rating: rand(1..5),
+  rating: 4,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Very enjoyable and comforting. Perfect for a cozy meal at home.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "A bit too bland for my taste. Could use more seasoning or spices.",
-  rating: rand(1..5),
+  rating: 1,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Fantastic meal! The ingredients were fresh and the flavors were spot on.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "The meal was average. Nothing particularly memorable.",
-  rating: rand(1..5),
+  rating: 2,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "A perfect blend of flavors. I would definitely recommend this dish.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "The presentation was impressive, and the taste was great. I’d love to have it again.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Not quite what I was expecting. It was decent but lacked depth in flavor.",
-  rating: rand(1..5),
+  rating: 3,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Very flavorful and well-cooked. A nice surprise!",
-  rating: rand(1..5),
+  rating: 4,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "The meal was alright. I’ve had better but also worse.",
-  rating: rand(1..5),
+  rating: 3,
   meal: Meal.all.sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Excellent meal! The combination of ingredients was perfect.",
-  rating: rand(1..5),
+  rating: 5,
   meal: Meal.all.sample,
   user: User.all.sample
 )
