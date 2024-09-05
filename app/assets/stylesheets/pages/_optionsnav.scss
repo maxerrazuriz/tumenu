@@ -1,15 +1,21 @@
+h1#logo{
+  color: black;
+}
+
+
 #asparagus{
-  
+
   #profile_options{
 
     display: grid;
     position: absolute;
-    left: 75%;
-    top: 40%;
+    left: 65%;
+    top: 70%;
     flex-direction: column;
     width: auto;
     background-color: white;
-    font-size: 10px;
+    font-size: 16px;
+    z-index: 10101010101010;
     a{
       border-top: solid rgb(153, 143, 143);
       border-left: solid rgb(153, 143, 143);

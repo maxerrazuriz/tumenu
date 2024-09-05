@@ -1,17 +1,18 @@
 <div class="all-calendar" data-controller="calendar">
   <div class="upper-calendar">
+
     <h2><%= Date.today.strftime("%B") %></h2>
     <div class="d-flex justify-content-evenly ">
-      <%day = Date.today%>
-      <% while day < Date.today + 7 %>
+      <%day = Date.today - 1%>
+      <% while day < Date.today + 6 %>
         <p><strong><%= day.strftime("%A")[0] %></strong></p>
         <% day = day + 1 %>
       <% end %>
     </div>
     <div class="d-flex justify-content-evenly">
-      <%day = Date.today%>
-      <% while day < Date.today + 7 %>
-        <p data-id="<%= day.day %>" data-action="click->calendar#reveal" class="<%="blanc" if day == Date.today%>"><%= day.day %></p>
+      <%day = Date.today - 1%>
+      <% while day < Date.today + 6 %>
+        <p data-id="<%= day.day %>" data-action="click->calendar#reveal" class="<%="blanc" if day == (Date.today - 1)%>"><%= day.day %></p>
         <% day = day + 1 %>
       <% end %>
     </div>
@@ -19,8 +20,8 @@
 
   <div class="calendar">
     <div class="durian">
-      <%day = Date.today%>
-      <% while day < Date.today + 7 %>
+      <% day = Date.today - 1 %>
+      <% while day < Date.today + 6 %>
         <div class="day <%="active" if day == Date.today%>" data-id="<%= day.day %>">
           <div class="time">
             <% unless @meals.where(date: day, time_of_day: "Breakfast").empty? %>
@@ -98,6 +99,9 @@
               <% end %>
             </div>
           </div>
+          <% if @meals.where(date: day).empty? %>
+            <h4>Nothing planned today...</h4>
+          <% end %>
           <% day = day + 1 %>
         </div>
       <% end %>
