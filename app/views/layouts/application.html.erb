@@ -13,10 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
   </head>
 
-  <body class="<%='bg' if params["controller"] == "devise/sessions" && params["action"] == "new"%>">
+  <body class="<%='bg' if params["controller"] == "devise/sessions" && params["action"] == "new"%> ">
 
-
-    <% unless params["controller"] != "devise/sessions" && params["action"] == "new"%>
+    <% unless (params["controller"] == "devise/sessions" && params["action"] == "new") || (params["controller"] == "pages" && params["action"] == "home") || (params["controller"] == "devise/registrations" && params["action"] == "new")%>
+    
       <%= render "shared/navbar" %>
     <% end %>
 
