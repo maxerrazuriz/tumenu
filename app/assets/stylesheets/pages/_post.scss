@@ -12,21 +12,28 @@
   justify-content: space-between;
 }
 
+#new_meal {
+  .form-control.numeric {
+      border: 0.5px solid lightgrey;
+      height: 49px;
 
-.form-control {
-  border-radius: 0px;
-
-}
-
-.form-control.numeric {
-    border: 0.5px solid lightgrey;
-    height: 49px;
-
+    }
+  i{
+  color: rgb(75, 78, 81);
   }
 
+}
 .form-entire {
   padding: 10px;
   padding-top: 60px;
+
+  .form-control {
+    border-radius: 0px;
+  }
+
+  .form-control.text{
+    padding-bottom: 0px;
+  }
 
   h1 {
     font-weight: 1000;
@@ -45,9 +52,8 @@
 .file.optional.meal_photos {
   margin-top: 30px;
 }
-.form-control.text{
-  padding-bottom: 0px;
-}
-i{
-  color: rgb(75, 78, 81);
+
+.post_button {
+  border: none;
+
 }

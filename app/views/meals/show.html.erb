@@ -39,10 +39,12 @@
 <div class= "review_form" >
   <%= simple_form_for([@meal, @review]) do |f| %>
     <div class="d-flex review-form-content">
-      <%= f.input :content, placeholder: "Write a review...", label: false%>
-      <%= f.input :rating, placeholder: "Rate it...", label: false, as: :numeric %>
+      <%= f.input :content, placeholder: "Write a review...", label: false %>
+      <%= f.input :rating, collection: (1..5).to_a, as: :select, placeholder: "Rate it...", label: "Rating" %>
     </div>
-      <%= f.submit "Submit", class: "btn btn-primary"%>
+    <div class="d-flex align-items-center">
+      <%= f.submit "Submit", class: "btn submit_review"%>
+    </div>
   <% end %>
 
   <% @meal.reviews.each do |review| %>
@@ -75,5 +77,3 @@
     </div>
 <% end %>
 </div>
-
-<p style="padding-left: 20px;"> <i class="fa-solid fa-arrow-left"></i> <%= link_to "Back to meals", meals_path, style: "text-decoration: none; padding-left: 2px;" %></p>
