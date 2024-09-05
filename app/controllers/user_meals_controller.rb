@@ -10,7 +10,7 @@ class UserMealsController < ApplicationController
     @user_meal.user = current_user
     @user_meal.meal = Meal.find(params[:meal_id])
     if @user_meal.save
-      redirect_to meal_path(params[:meal_id]) # then will redirect to calendar but for now this is fine
+      redirect_to user_meals_path # then will redirect to calendar but for now this is fine
     end
   end
 

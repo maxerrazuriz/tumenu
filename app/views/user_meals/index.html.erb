@@ -50,8 +50,8 @@
                 <% @meals.where(date: day, time_of_day: "Lunch").each do |meal| %>
                   <div class="calendar-card">
                     <% if meal.meal.photo.attached? %>
-              <%= cl_image_tag meal.meal.photo.key%>
-          <%end%>
+                      <%= cl_image_tag meal.meal.photo.key%>
+                    <%end%>
                     <div class="calendar-card-infos">
                       <p><%= link_to meal.meal.name, meal_path(meal.meal)%></p>
                     </div>
@@ -69,8 +69,8 @@
                 <% @meals.where(date: day, time_of_day: "Dinner").each do |meal| %>
                   <div class="calendar-card">
                     <% if meal.meal.photo.attached? %>
-              <%= cl_image_tag meal.meal.photo.key%>
-          <%end%>
+                      <%= cl_image_tag meal.meal.photo.key%>
+                    <%end%>
                     <div class="calendar-card-infos">
                       <p><%= link_to meal.meal.name, meal_path(meal.meal)%></p>
                     </div>
@@ -88,27 +88,8 @@
                 <% @meals.where(date: day, time_of_day: "Snack").each do |meal| %>
                   <div class="calendar-card">
                     <% if meal.meal.photo.attached? %>
-              <%= cl_image_tag meal.meal.photo.key%>
-          <%end%>
-                    <div class="calendar-card-infos">
-                      <p><%= link_to meal.meal.name, meal_path(meal.meal)%></p>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-          <div class="time">
-            <% unless @meals.where(date: day, time_of_day: "Assault the fridge at 2am").empty? %>
-              <h5><strong>Midnight Snack</strong></h5>
-            <% end %>
-            <div class="time-of-day">
-              <% unless @meals.where(date: day, time_of_day: "Assault the fridge at 2am").empty? %>
-                <% @meals.where(date: day, time_of_day: "Assault the fridge at 2am").each do |meal| %>
-                  <div class="calendar-card">
-                    <% if meal.meal.photo.attached? %>
-              <%= cl_image_tag meal.meal.photo.key%>
-          <%end%>
+                      <%= cl_image_tag meal.meal.photo.key%>
+                    <%end%>
                     <div class="calendar-card-infos">
                       <p><%= link_to meal.meal.name, meal_path(meal.meal)%></p>
                     </div>

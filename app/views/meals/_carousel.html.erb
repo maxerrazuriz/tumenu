@@ -1,4 +1,4 @@
-<h2 id="mod-title"><i><%= "#{list.first.cuisine} food".upcase %></i></h2>
+<h2 id="mod-title"><i><%= "#{list.first.cuisine}".capitalize %></i></h2>
 <div style = "padding: 5%;" id="carousel_<%=index%>" class="carousel slide" data-bs-ride="carousel">
     <div style = "padding: 5%;" class="carousel-inner">
       <% list.in_groups_of(1, false).each_with_index do |group, index| %>
