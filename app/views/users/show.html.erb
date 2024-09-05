@@ -3,7 +3,7 @@
 
 <div class="card" id="profile_card">
     <div class= "container" id="container_profile">
-      <div id="profile_picture"
+      <div id="profile_picture">
           <% if @user.profile_picture.attached? %>
             <%= cl_image_tag @user.profile_picture.key, alt:"user Image", class:"scaled-image", style:"object-fit: cover"%>
           <% end %>
