@@ -14,7 +14,7 @@
 
 .calendar_button button {
   color: white;
-  background-color: orangered ;
+  background-color: $orange ;
   border-radius: 50px;
   padding-left: 10px;
   padding-right: 10px;
@@ -24,17 +24,17 @@
 }
 
 #cal_form{
-
   form{
 
+    margin-left: 10%;
     width: 300px;
     position: absolute;
     left: 0%
   }
 
   .remolacha{
-    color: white;
-    background-color: #ee5c07;
+    color: white !important;
+    background-color: $orange !important;
     padding-left: 20px;
     padding-right: 20px;
     height: 25px;
@@ -44,6 +44,15 @@
     border-radius: 50px;
 
   }
+  .btn{
+      padding-left: 86px;
+    }
+    .btn:hover{
+      color: white !important;
+      background-color: $orange !important;
+      border-color: none !important;
+
+    }
 }
 .meal_intro{
   h1{
@@ -101,25 +110,7 @@
  }
 
 #new_review{
-//  .review-form-content{
-//   .review_rating{
-//     margin-left: 20px;
-//     width: 25%;
-//     margin-top: 30px;
 
-//     #review_rating{
-//       text-align: left;
-//       padding-top: 14px;
-//       padding-left: 0px;
-//       border: none;
-//       border-bottom:  solid lightgray;
-//     }
-//   }
-//   .review_content{
-//     width: 70%;
-//     margin-right: 20px;
-//   }
-//  }
   .review_content  {
     flex-grow: 1;
   }
