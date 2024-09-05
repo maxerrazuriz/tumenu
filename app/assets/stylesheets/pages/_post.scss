@@ -17,13 +17,17 @@
   border-radius: 0px;
 
 }
+#new_meal {
+  .form-control.numeric {
+      border: 0.5px solid lightgrey;
+      height: 49px;
 
-.form-control.numeric {
-    border: 0.5px solid lightgrey;
-    height: 49px;
-
+    }
+  i{
+  color: rgb(75, 78, 81);
   }
 
+}
 .form-entire {
   padding: 10px;
   padding-top: 60px;
@@ -47,7 +51,4 @@
 }
 .form-control.text{
   padding-bottom: 0px;
-}
-i{
-  color: rgb(75, 78, 81);
 }

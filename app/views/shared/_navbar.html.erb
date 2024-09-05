@@ -1,7 +1,9 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-tumenu">
   <div class="container-fluid" id="container_nav">
-     <h1 id="logo">TÚMENU</h1>
+    <%= link_to meals_path do %>
+      <h1 id="logo">TÚMENU</h1>
+    <% end %>
     <% unless current_user %>
       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success", type: "button", id: "sign_up_button" %>
     <% else %>
@@ -14,6 +16,10 @@
         <% if current_user.profile_picture.attached? %>
           <%= link_to profile_path(current_user) do %>
             <%= cl_image_tag current_user.profile_picture.key, alt:"user Image", class:"avatar", style:"object-fit: cover"%>
+          <% end %>
+        <% else %>
+          <%= link_to profile_path(current_user) do %>
+            <%= image_tag "https://res.cloudinary.com/do9ythsfg/image/upload/v1725461237/default-avatar-icon-of-social-media-user-vector_xldyl1.jpg" , alt:"user Image", class:"avatar", style:"object-fit: cover"%>
           <% end %>
         <%end%>
       </div>
