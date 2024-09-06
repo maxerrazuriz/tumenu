@@ -1834,15 +1834,7 @@ MealDiet.create!(
   diet: Diet.find_by(name: "vegan"),
   meal: Meal.find_by(name: 'Tomato and Cucumber Breakfast Soup')
 )
-
 # ASSIGING A USER TO A DIET
-15.times do
-  UserDiet.create!(
-    user: User.all.sample,
-    diet: Diet.all.sample
-  )
-end
-
 # ASIGNING A USER TO A MEAL WITH DATE
 
 # Spanakopita
@@ -1995,7 +1987,7 @@ Review.create!(
 Review.create!(
   content: "Very enjoyable and comforting. Perfect for a cozy meal at home.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.find_by(name: "Vegetarian Stir-Fried Tofu"),
   user: User.all.sample
 )
 
@@ -2009,7 +2001,7 @@ Review.create!(
 Review.create!(
   content: "Fantastic meal! The ingredients were fresh and the flavors were spot on.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.find_by(name: "Vegetarian Stir-Fried Tofu"),
   user: User.all.sample
 )
 
@@ -2030,7 +2022,7 @@ Review.create!(
 Review.create!(
   content: "The presentation was impressive, and the taste was great. I’d love to have it again.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.find_by(name: "Vegetarian Stir-Fried Tofu"),
   user: User.all.sample
 )
 
