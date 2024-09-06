@@ -1903,84 +1903,84 @@ UserMeal.create!(
 Review.create!(
   content: "Delicious and satisfying! The flavors were perfect.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "A wonderful meal with just the right amount of spice. Will definitely try again.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "The dish was well-presented and tasted great. Could use a bit more seasoning.",
   rating: 4,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Very flavorful and fresh. Perfect balance of ingredients.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "It was good, but I expected a bit more based on the description.",
   rating: 3,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Absolutely loved it! The texture and taste were spot-on.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Not bad, but it didn’t stand out. Could use more variety in flavors.",
   rating: 2,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "A delightful meal! The presentation was fantastic and the taste was even better.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "The meal was good, but it took a bit longer to prepare than expected.",
   rating: 4,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Enjoyed every bite! The balance of flavors was really well done.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "A hearty and filling dish. Great for a satisfying meal.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Tasty, but I felt like it needed a bit more of a kick.",
   rating: 4,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
@@ -1988,13 +1988,13 @@ Review.create!(
   content: "Very enjoyable and comforting. Perfect for a cozy meal at home.",
   rating: 5,
   meal: Meal.find_by(name: "Vegetarian Stir-Fried Tofu"),
-  user: User.all.sample
+  user: User.where.not(email: "nori.niyu@gmail.com").sample
 )
 
 Review.create!(
   content: "A bit too bland for my taste. Could use more seasoning or spices.",
   rating: 1,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
@@ -2002,20 +2002,20 @@ Review.create!(
   content: "Fantastic meal! The ingredients were fresh and the flavors were spot on.",
   rating: 5,
   meal: Meal.find_by(name: "Vegetarian Stir-Fried Tofu"),
-  user: User.all.sample
+  user: User.where.not(email: "nori.niyu@gmail.com").sample
 )
 
 Review.create!(
   content: "The meal was average. Nothing particularly memorable.",
   rating: 2,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "A perfect blend of flavors. I would definitely recommend this dish.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
@@ -2023,33 +2023,33 @@ Review.create!(
   content: "The presentation was impressive, and the taste was great. I’d love to have it again.",
   rating: 5,
   meal: Meal.find_by(name: "Vegetarian Stir-Fried Tofu"),
-  user: User.all.sample
+  user: User.where.not(email: "nori.niyu@gmail.com").sample
 )
 
 Review.create!(
   content: "Not quite what I was expecting. It was decent but lacked depth in flavor.",
   rating: 3,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Very flavorful and well-cooked. A nice surprise!",
   rating: 4,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "The meal was alright. I’ve had better but also worse.",
   rating: 3,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
 
 Review.create!(
   content: "Excellent meal! The combination of ingredients was perfect.",
   rating: 5,
-  meal: Meal.all.sample,
+  meal: Meal.where.not(name: "Vegetarian Stir-Fried Tofu").sample,
   user: User.all.sample
 )
