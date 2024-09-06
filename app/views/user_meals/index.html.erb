@@ -12,7 +12,7 @@
     <div class="d-flex justify-content-evenly">
       <%day = Date.today - 1%>
       <% while day < Date.today + 6 %>
-        <p data-id="<%= day.day %>" data-action="click->calendar#reveal" class="<%="blanc" if day == (Date.today - 1)%>"><%= day.day %></p>
+        <p data-id="<%= day.day %>" data-action="click->calendar#reveal" class="<%="blanc" if day == (Date.today)%>"><%= day.day %></p>
         <% day = day + 1 %>
       <% end %>
     </div>
